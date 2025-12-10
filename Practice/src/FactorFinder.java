@@ -16,7 +16,7 @@ public class FactorFinder {
         factors.add(1);
         factors.add(number);
 
-        for (int i = 2; i < number / 2; i++) {
+        for (int i = 2; i < Math.sqrt(number); i++) {
             if (number % i == 0) {
                 factors.add(i);
                 factors.add(number/i);
