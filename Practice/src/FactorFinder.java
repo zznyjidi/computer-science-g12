@@ -18,7 +18,7 @@ public class FactorFinder {
 
         int bound = (int)Math.sqrt(number);
 
-        for (int i = 2; i < bound; i++) {
+        for (int i = 2; i <= bound; i++) {
             if (number % i == 0) {
                 factors.add(i);
                 factors.add(number/i);
