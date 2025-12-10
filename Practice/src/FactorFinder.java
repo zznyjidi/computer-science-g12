@@ -1,11 +1,13 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class FactorFinder {
     public static void main(String[] args) {
         int number = SumCalculator.getPositiveNumber("> ");
-        Set<Integer> factors = calculateFactor(number);
-        IO.println(factors);
+        Object[] factors = calculateFactor(number).toArray();
+        Arrays.sort(factors);
+        IO.println(Arrays.toString(factors));
     }
 
     public static Set<Integer> calculateFactor(int number) {
