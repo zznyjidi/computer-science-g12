@@ -6,7 +6,11 @@ public class LetterCount {
         while (true) {
             String input = IO.readln("Word? > ");
             if (input.equals("")) break;
+
+            Map<Character, Integer> letterFrequency = countLetter(input);
+
             IO.println(countLetter(input));
+            IO.println("The most used letters in the word " + input + " is " + findHighestValue(letterFrequency));
         }
     }
 
@@ -19,5 +23,19 @@ public class LetterCount {
             letters.put(Character.toLowerCase(c), letters.getOrDefault(c, 0) + 1);
 
         return letters;
+    }
+
+    public static <K> K findHighestValue(Map<K, Integer> inputMap) {
+        int highestValue = Integer.MIN_VALUE;
+        K highestKey = null;
+
+        for (Map.Entry<K, Integer> entry : inputMap.entrySet()) {
+            if (entry.getValue() > highestValue) {
+                highestKey = entry.getKey();
+                highestValue = entry.getValue();
+            }
+        }
+
+        return highestKey;
     }
 }
