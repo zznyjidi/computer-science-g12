@@ -7,7 +7,8 @@ public class LetterCount {
         Map<Character, Integer> totalFrequencies = new HashMap<>();
         while (true) {
             String input = IO.readln("Word? > ");
-            if (input.equals("")) break;
+            if (input.equals(""))
+                break;
 
             Map<Character, Integer> letterFrequency = countLetter(input);
             mergeFrequencyMap(totalFrequencies, letterFrequency);
