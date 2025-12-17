@@ -1,6 +1,7 @@
 public class Fib {
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        int input = SumCalculator.getPositiveNumber("> ");
+        for (int i = 0; i <= input; i++) {
             IO.print(fibonacci(i) + " ");
         }
     }
