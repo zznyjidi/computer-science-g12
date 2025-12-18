@@ -19,13 +19,14 @@ public class IntToWord {
         if (number < 0)
             negative = true;
 
-        int digitCount = String.valueOf(number).length();
         List<String> wordList = new ArrayList<>();
 
-        int remaining = number;
-        for (int i = digitCount - (negative ? 2 : 1); i >= 0; i--) {
+        int remaining = (negative ? -1 : 1) * number;
+        int digitCount = String.valueOf(remaining).length();
+
+        for (int i = digitCount - 1; i >= 0; i--) {
             int digitUnit = Math.powExact(10, i);
-            int digit = (negative ? -1 : 1) * (remaining / digitUnit);
+            int digit = remaining / digitUnit;
             remaining = remaining % digitUnit;
 
             if (digit == 0) {
