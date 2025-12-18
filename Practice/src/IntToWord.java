@@ -9,7 +9,7 @@ public class IntToWord {
     static String[] tenthDigit = {
             "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
     };
-    static String[] digitMark = { "hundred" };
+    static String[] digitMark = { "hundred", "thousand" };
 
     public static String intToWord(int number) {
         if (number == 0)
@@ -29,7 +29,7 @@ public class IntToWord {
             remaining = remaining % digitUnit;
 
             if (digit == 0) {
-                if (i > 0 && remaining > 0)
+                if (i > 0 && remaining > 0 && !wordList.getLast().equals("and"))
                     wordList.add("and");
             } else if (i == 1) {
                 if (digit > 1) {
