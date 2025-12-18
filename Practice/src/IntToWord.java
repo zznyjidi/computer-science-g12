@@ -15,13 +15,17 @@ public class IntToWord {
         if (number == 0)
             return numberWords[0];
 
+        boolean negative = false;
+        if (number < 0)
+            negative = true;
+
         int digitCount = String.valueOf(number).length();
         List<String> wordList = new ArrayList<>();
 
         int remaining = number;
-        for (int i = digitCount - 1; i >= 0; i--) {
+        for (int i = digitCount - (negative ? 2 : 1); i >= 0; i--) {
             int digitUnit = Math.powExact(10, i);
-            int digit = remaining / digitUnit;
+            int digit = (negative ? -1 : 1) * (remaining / digitUnit);
             remaining = remaining % digitUnit;
 
             if (digit == 0) {
@@ -41,10 +45,6 @@ public class IntToWord {
             }
         }
 
-        return wordList.toString();
-    }
-
-    public static void main(String[] args) {
-        IO.println(intToWord(25));
+        return (negative ? "negative " : "") + String.join(" ", wordList);
     }
 }
