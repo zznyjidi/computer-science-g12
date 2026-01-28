@@ -10,8 +10,8 @@ public class Animal {
     }
 }
 
-class Dog extends Animal {
-    public Dog(String name) {
+class AnimalDog extends Animal {
+    public AnimalDog(String name) {
         super(name);
     }
 

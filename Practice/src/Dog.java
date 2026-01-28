@@ -1,5 +1,5 @@
 public class Dog {
-    int legs = 4;
+    protected int legs = 4;
 
     public void cutAllLegs() {
         cutALeg(legs);
@@ -13,7 +13,28 @@ public class Dog {
         legs -= count;
     }
 
+    public int getLegs() {
+        return legs;
+    }
+
     public void bark() {
         IO.println("Dooooooooooooooooggggggggggggggggg!");
     }
+}
+
+class Beagle extends Dog {
+    public void printLegs() {
+        IO.println(this.legs);
+    }
+
+    @Override
+    public void bark() {
+        IO.println("Beagggggggggggggggggggggggggle!");
+    }
+}
+
+class BlackDog extends Dog {
+}
+
+class WhiteDog extends Dog {
 }
