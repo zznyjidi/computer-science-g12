@@ -1,0 +1,3 @@
+[submodule "java-pos-system"]
+	path = java-pos-system
+	url = https://github.com/zznyjidi/java-pos-system
