@@ -1,0 +1,17 @@
+{
+    "folders": [
+        {
+            "path": "practice",
+        },
+        {
+            "path": "java-pos-system",
+        },
+        {
+            "path": "java-minesweeper",
+        },
+    ],
+    "settings": {
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.updateBuildConfiguration": "interactive",
+    },
+}
