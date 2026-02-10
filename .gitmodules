@@ -1,3 +1,6 @@
 [submodule "java-pos-system"]
 	path = java-pos-system
 	url = https://github.com/zznyjidi/java-pos-system
+[submodule "java-minesweeper"]
+	path = java-minesweeper
+	url = https://github.com/zznyjidi/java-minesweeper
