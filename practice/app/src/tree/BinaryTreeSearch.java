@@ -26,14 +26,17 @@ public class BinaryTreeSearch {
         return numbers;
     }
 
-    final static int SEARCH_COUNT = 100000;
+    final static int SEARCH_COUNT = 10000;
 
     public static void main(String[] args) {
-        IO.println("Search: " + SEARCH_COUNT);
+        IO.println("Started. ");
         IO.println();
 
         int[] numbers = generateRandomArray(SEARCH_COUNT, 0, SEARCH_COUNT + 1);
         int[] searchNumbers = generateRandomArray(SEARCH_COUNT, 0, SEARCH_COUNT + 1);
+
+        IO.println("Search: " + SEARCH_COUNT);
+        IO.println();
 
         int simpleSearchOp = 0;
         for (int i : searchNumbers) {
