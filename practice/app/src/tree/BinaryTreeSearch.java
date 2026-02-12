@@ -26,40 +26,46 @@ public class BinaryTreeSearch {
         return numbers;
     }
 
-    final static int SEARCH_COUNT = 1000;
+    final static int SEARCH_COUNT = 100000;
 
     public static void main(String[] args) {
         IO.println("Search: " + SEARCH_COUNT);
         IO.println();
 
-        int[] numbers = generateRandomArray(1000, 0, 101);
-        int[] searchNumbers = generateRandomArray(SEARCH_COUNT, 0, 101);
+        int[] numbers = generateRandomArray(SEARCH_COUNT, 0, SEARCH_COUNT + 1);
+        int[] searchNumbers = generateRandomArray(SEARCH_COUNT, 0, SEARCH_COUNT + 1);
 
-        int simpleTotalOpCount = 0;
+        int simpleSearchOp = 0;
         for (int i : searchNumbers) {
-            simpleTotalOpCount += normalSearch(numbers, i);
+            simpleSearchOp += normalSearch(numbers, i);
         }
         IO.println("SimpleSearch: ");
-        IO.println("Average: " + (simpleTotalOpCount / SEARCH_COUNT));
-        IO.println("Total: " + simpleTotalOpCount);
+        IO.println("Total: " + simpleSearchOp);
+        int simpleSearchAve = simpleSearchOp / SEARCH_COUNT;
+        IO.println("Average: " + simpleSearchAve);
         IO.println();
 
         BinaryTreeNode root = new BinaryTreeNode();
 
-        int buildOpCount = 0;
+        int binaryBuildOp = 0;
         for (int number : numbers) {
-            buildOpCount += root.add(number);
+            binaryBuildOp += root.add(number);
         }
-        int binaryTotalCount = 0;
+        int binarySearchOp = 0;
         for (int i : searchNumbers) {
-            binaryTotalCount += root.search(i);
+            binarySearchOp += root.search(i);
         }
         IO.println("BinarySearch: ");
-        IO.println("Average: " + (binaryTotalCount + buildOpCount) / SEARCH_COUNT);
-        IO.println("Total: " + (binaryTotalCount + buildOpCount));
-        IO.println("Build: " + buildOpCount);
-        IO.println("SearchAverage: " + (binaryTotalCount / SEARCH_COUNT));
-        IO.println("SearchTotal: " + binaryTotalCount);
+        int binaryTotalOp = binaryBuildOp + binarySearchOp;
+        IO.println("Total: " + binaryTotalOp);
+        int binaryTotalAve = binaryTotalOp / SEARCH_COUNT;
+        IO.println("Average: " + binaryTotalAve);
+        IO.println("Build: " + binaryBuildOp);
+        IO.println("SearchTotal: " + binarySearchOp);
+        int binarySearchAve = binarySearchOp / SEARCH_COUNT;
+        IO.println("SearchAverage: " + binarySearchAve);
         IO.println();
+
+        IO.println("ForBinarySearchToBeMoreEfficient: " + (binaryBuildOp / (simpleSearchAve - binarySearchAve)));
     }
 }
