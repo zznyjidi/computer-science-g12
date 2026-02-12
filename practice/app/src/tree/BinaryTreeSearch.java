@@ -30,6 +30,7 @@ public class BinaryTreeSearch {
 
     public static void main(String[] args) {
         IO.println("Search: " + SEARCH_COUNT);
+        IO.println();
 
         int[] numbers = generateRandomArray(1000, 0, 101);
         int[] searchNumbers = generateRandomArray(SEARCH_COUNT, 0, 101);
@@ -39,8 +40,9 @@ public class BinaryTreeSearch {
             simpleTotalOpCount += normalSearch(numbers, i);
         }
         IO.println("SimpleSearch: ");
-        IO.println("SearchAverage: " + (simpleTotalOpCount / SEARCH_COUNT));
-        IO.println("SearchTotal: " + simpleTotalOpCount);
+        IO.println("Average: " + (simpleTotalOpCount / SEARCH_COUNT));
+        IO.println("Total: " + simpleTotalOpCount);
+        IO.println();
 
         BinaryTreeNode root = new BinaryTreeNode();
 
@@ -53,10 +55,11 @@ public class BinaryTreeSearch {
             binaryTotalCount += root.search(i);
         }
         IO.println("BinarySearch: ");
+        IO.println("Average: " + (binaryTotalCount + buildOpCount) / SEARCH_COUNT);
+        IO.println("Total: " + (binaryTotalCount + buildOpCount));
         IO.println("Build: " + buildOpCount);
         IO.println("SearchAverage: " + (binaryTotalCount / SEARCH_COUNT));
         IO.println("SearchTotal: " + binaryTotalCount);
-        IO.println("TotalAverage: " + (binaryTotalCount + buildOpCount) / SEARCH_COUNT);
-        IO.println("Total: " + (binaryTotalCount + buildOpCount));
+        IO.println();
     }
 }
