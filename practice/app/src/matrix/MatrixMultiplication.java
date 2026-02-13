@@ -31,6 +31,24 @@ public class MatrixMultiplication {
         return newMatrix;
     }
 
+    public static int[][] matrixMultiplication(int[][] matrix1, int[][] matrix2) {
+        if (matrix1[0].length != matrix2.length)
+            throw new IllegalArgumentException();
+
+        int[][] newMatrix = new int[matrix1.length][matrix2[0].length];
+
+        for (int y = 0; y < newMatrix.length; y++) {
+            for (int x = 0; x < newMatrix[0].length; x++) {
+                newMatrix[y][x] = 0;
+                for (int i = 0; i < matrix1[0].length; i++) {
+                    newMatrix[y][x] += matrix1[y][i] * matrix2[i][x];
+                }
+            }
+        }
+
+        return newMatrix;
+    }
+
     public static void printMatrix(int[][] matrix) {
         for (int[] row : matrix) {
             IO.println(Arrays.toString(row));
@@ -50,8 +68,18 @@ public class MatrixMultiplication {
 
         Random random = new Random();
         int randInt = random.nextInt(MATRIX_RAND_MIN, MATRIX_RAND_MAX);
-        int[][] newMatrix = matrixMultiplication(matrix, randInt);
+        int[][] newMatrix1 = matrixMultiplication(matrix, randInt);
         IO.println(randInt);
-        printMatrix(newMatrix);
+        printMatrix(newMatrix1);
+
+        int[][] multiplyMatrix = generateMatrix(MATRIX_HEIGHT, 1, MATRIX_RAND_MIN, MATRIX_RAND_MAX);
+        int[][] newMatrix2 = matrixMultiplication(multiplyMatrix, matrix);
+        printMatrix(multiplyMatrix);
+        printMatrix(newMatrix2);
+
+        int[][] multiplyMatrix2 = generateMatrix(MATRIX_HEIGHT, MATRIX_WIDTH, MATRIX_RAND_MIN, MATRIX_RAND_MAX);
+        int[][] newMatrix3 = matrixMultiplication(multiplyMatrix2, matrix);
+        printMatrix(multiplyMatrix2);
+        printMatrix(newMatrix3);
     }
 }
